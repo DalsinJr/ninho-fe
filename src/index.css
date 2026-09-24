@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System "Águia" — variáveis semânticas (SPEC §9.5). */
+@layer base {
+  :root {
+    --background: 210 40% 98%;          /* neutro-50 */
+    --foreground: 222 47% 11%;          /* neutro-900 */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 83% 32%;             /* azul-500 — marca */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 62% 96%;           /* azul-50 */
+    --secondary-foreground: 217 83% 32%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;    /* neutro-500 */
+    --accent: 217 62% 96%;
+    --accent-foreground: 217 83% 32%;
+
+    --destructive: 0 77% 39%;           /* vermelho-500 — marca (§9.6) */
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 72% 29%;             /* #15803D */
+    --warning: 26 90% 37%;              /* #B45309 */
+    --info: 218 47% 50%;                /* azul-400 */
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 218 47% 50%;                /* foco: azul-400 */
+    --radius: 0.5rem;
+
+    --surface: 0 0% 100%;
+
+    /* Triagem por IA — deliberadamente neutra: o parecer não é veredicto */
+    --ia-adequado: 142 72% 29%;
+    --ia-nao-adequado: 215 19% 35%;     /* neutro-600 — cinza, NÃO vermelho (§9.6) */
+    --ia-inconclusivo: 26 90% 37%;
+    --ia-fundo: 217 62% 96%;            /* azul-50 */
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 218 55% 67%;             /* azul-300: o azul da marca não tem contraste no escuro */
+    --primary-foreground: 222 47% 11%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
+    --destructive: 1 62% 68%;           /* vermelho-300 */
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --surface: 217 33% 17%;
+    --ia-fundo: 218 85% 13%;            /* azul-900 */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  /* §9.8: foco visível, 2 px em --ring com offset de 2 px, nunca removido. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
