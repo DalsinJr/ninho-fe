@@ -10,6 +10,7 @@ import EmConstrucao from "@/pages/EmConstrucao";
 import NaoEncontrada from "@/pages/NaoEncontrada";
 import Dashboard from "@/pages/app/Dashboard";
 import Entrar from "@/pages/app/Entrar";
+import Perfil from "@/pages/app/Perfil";
 import Usuarios from "@/pages/app/Usuarios";
 import Landing from "@/pages/portal/Landing";
 
@@ -61,7 +62,7 @@ export default function App() {
             <Route path="configuracoes/ia" element={<EmConstrucao titulo="Configuração de IA" fase="F5" />} />
             <Route path="lgpd" element={<EmConstrucao titulo="LGPD" fase="F6" />} />
             <Route path="relatorios" element={<EmConstrucao titulo="Relatórios" fase="F6" />} />
-            <Route path="perfil" element={<EmConstrucao titulo="Perfil" fase="F0" />} />
+            <Route path="perfil" element={<Perfil />} />
             <Route path="*" element={<NaoEncontrada />} />
           </Route>
         </Routes>
