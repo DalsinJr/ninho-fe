@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 import { RequireAuth } from "@/components/RequireAuth";
+import { TratadorSessaoExpirada } from "@/components/TratadorSessaoExpirada";
 import { BackofficeLayout } from "@/layouts/BackofficeLayout";
 import { PortalLayout } from "@/layouts/PortalLayout";
 import EmConstrucao from "@/pages/EmConstrucao";
@@ -18,6 +19,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <Toaster position="top-center" />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <TratadorSessaoExpirada />
         <Routes>
           <Route element={<PortalLayout />}>
             <Route index element={<Landing />} />
